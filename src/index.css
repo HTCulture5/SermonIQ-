@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&family=Courier+Prime:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant+Garamond", serif;
+  --font-mono: "Courier+Prime", monospace;
+
+  --color-navy: #05101e;
+  --color-navy-light: #0b1c34;
+  --color-navy-muted: #112848;
+  --color-gold: #c4900a;
+  --color-gold-bright: #e0aa30;
+  --color-gold-soft: #f2cc60;
+  --color-ivory: #f8f2e2;
+  --color-page: #faf6ee;
+}
+
+@layer base {
+  body {
+    @apply bg-navy text-ivory font-sans leading-relaxed overflow-x-hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer utilities {
+  .grid-bg {
+    background-image: linear-gradient(rgba(196, 144, 10, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(196, 144, 10, 0.03) 1px, transparent 1px);
+    background-size: 54px 54px;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px rgba(196, 144, 10, 0.3);
+  }
+}
+
+/* Custom animations for the glow dots */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 2.2s ease infinite;
+}
